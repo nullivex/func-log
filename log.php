@@ -36,12 +36,13 @@ function dolog($msg,$level=LOG_INFO){
 	}
 	$date = date(Config::get('log','date_format'));
 	$fmtd_msg = sprintf(Config::get('log','format'),$lword,$date,$msg).PHP_EOL;
-	if(php_sapi_name() == 'cli') echo $fmtd_msg;
+	if(php_sapi_name() == 'cli' && !defined('LOG_QUIET')) echo $fmtd_msg;
 	return fwrite($_log_fh,$fmtd_msg);
 }
 
 function _closelog(){
 	global $_log_fh;
-	return fclose($_log_fh);
+	if(is_resource($_log_fh)) return fclose($_log_fh);
+	return false;
 }
 
