@@ -36,7 +36,11 @@ function dolog($msg,$level=LOG_INFO){
 	}
 	$date = date(Config::get('log','date_format'));
 	$fmtd_msg = sprintf(Config::get('log','format'),$lword,$date,$msg).PHP_EOL;
-	if(php_sapi_name() == 'cli' && !defined('LOG_QUIET')) echo $fmtd_msg;
+	if(php_sapi_name() == 'cli' && !defined('LOG_QUIET'))
+		if(strlen($fmtd_msg) < 1024)
+			echo $fmtd_msg;
+		else
+			echo substr($fmtd_msg,0,1024)."<SNIP>\n";
 	return fwrite($_log_fh,$fmtd_msg);
 }
 
