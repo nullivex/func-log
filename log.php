@@ -35,6 +35,8 @@ function dolog($msg,$level=LOG_INFO){
 			break;
 	}
 	$date = date(Config::get('log','date_format'));
+	//we dont want newlines in output, let the output wrap naturally
+	//$msg = str_replace("\n",' ',$msg);
 	$fmtd_msg = sprintf(Config::get('log','format'),$lword,$date,$msg).PHP_EOL;
 	if(php_sapi_name() == 'cli' && !defined('LOG_QUIET'))
 		if(strlen($fmtd_msg) < 1024)
