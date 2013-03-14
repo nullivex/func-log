@@ -10,8 +10,10 @@ function dolog($msg,$level=LOG_INFO){
 	global $_log_fh;
 	if($level > Config::get('log','level')) return null;
 	if(!$_log_fh){
-		$_log_fh = fopen(Config::get('log','file'),'a');
-		if(!$_log_fh) throw new Exception('Could not open log: '.Config::get('log','file'));
+		$file = Config::get('log','file');
+		if($file === false) return null; //assume logging is off
+		$_log_fh = fopen($file,'a');
+		if(!$_log_fh) throw new Exception('Could not open log: '.$file);
 		register_shutdown_function('_closelog');
 	}
 	switch($level){
