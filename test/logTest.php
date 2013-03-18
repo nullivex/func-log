@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(__DIR__).'/test_common.php');
+ld('/func/log');
 
 class FuncLogTest extends PHPUNIT_Framework_TestCase {
 
