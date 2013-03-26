@@ -17,8 +17,8 @@
  *	You should have received a copy of the 
  *	GNU Lesser General Public License along with OpenLSS.
  *	If not, see <http://www.gnu.org/licenses/>.
-*/
-namespace LSS;
+ */
+use \LSS\Config;
 
 if(!defined('LOG_DEBUG')) define('LOG_DEBUG',7);
 if(!defined('LOG_INFO')) define('LOG_INFO',6);

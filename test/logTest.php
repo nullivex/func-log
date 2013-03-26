@@ -17,15 +17,16 @@
  *	You should have received a copy of the 
  *	GNU Lesser General Public License along with OpenLSS.
  *	If not, see <http://www.gnu.org/licenses/>.
-*/
-namespace LSS;
-
+ */
 require_once(dirname(__DIR__).'/vendor/autoload.php');
-require('boot.php');
-ld('config','func/log');
+require('lss_boot.php');
+
+use \LSS\Config;
+
+//turn logging to STDOUT off
 define('LOG_QUIET',true);
 
-class FuncLogTest extends \PHPUNIT_Framework_TestCase {
+class FuncLogTest extends PHPUNIT_Framework_TestCase {
 
 	public function testDolog(){
 		global $_log_fh;
