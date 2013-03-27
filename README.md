@@ -9,8 +9,6 @@ Usage
 ----
 
 ```php
-ld('func/log');
-
 dolog('This is an info message');
 dolog('This is an ERROR',LOG_ERROR);
 dolog('This is a warning',LOG_WARN);
