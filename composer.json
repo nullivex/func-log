@@ -29,6 +29,6 @@
 		 "openlss/core-boot":	"dev-master"
 	}
 	,"autoload": {
-		 "files":	["func/log.php"]
+		 "files":	["func/log.php","src/config.php"]
 	}
 }
