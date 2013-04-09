@@ -24,3 +24,5 @@ $config['log']['file'] = false;
 $config['log']['format'] = '[%s] %s - %s'; //%s - date %s - level %s - message
 $config['log']['date_format'] = 'm/d/Y g:i:sA';
 
+\LSS\Config::setDefaults($config);
+unset($config);
