@@ -29,6 +29,6 @@
 		 "openlss/core-boot":	"~0.0.1"
 	}
 	,"autoload": {
-		 "files":	["func/log.php"]
+		 "files":	["func/log.php","src/config.php"]
 	}
 }
